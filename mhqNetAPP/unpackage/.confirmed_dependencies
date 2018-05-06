@@ -1,0 +1,14 @@
+{
+	"index.html": {
+		"resources": [
+			"home.html"
+		],
+		"refer": [
+			"gwc.html",
+			"home.html",
+			"video.html",
+			"my.html",
+			"blog.html"
+		]
+	}
+}
