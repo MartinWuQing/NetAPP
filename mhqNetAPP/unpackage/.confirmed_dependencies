@@ -10,5 +10,10 @@
 			"my.html",
 			"blog.html"
 		]
+	},
+	"reg.html": {
+		"refer": [
+			"Login.html"
+		]
 	}
 }

@@ -13,26 +13,43 @@
 	</head>
 
 	<body>
-<header class="mui-bar mui-bar-nav">
-    <h1 class="mui-title">登录</h1>
-</header>
-<div class="mui-content">
-    <form class="mui-input-group">
-    <div class="mui-input-row">
-        <label>用户名</label>
-    <input type="text" class="mui-input-clear" placeholder="请输入用户名">
-    </div>
-    <div class="mui-input-row">
-        <label>密码</label>
-        <input type="password" class="mui-input-password" placeholder="请输入密码">
-    </div>
-    <div class="mui-button-row">
-        <button type="button" class="mui-btn mui-btn-primary" >登录</button>
-
-        <a href="reg.html" style="line-height: 2rem;">立即注册</a>
-    </div>
-  </form>
-</div>
+		<header class="mui-bar mui-bar-nav">
+		    <h1 class="mui-title">登录</h1>
+		</header>
+		<div class="mui-content">
+			    <form class="mui-input-group">
+				    <div class="mui-input-row">
+				        <label>用户名</label>
+				    <input type="text" id="username" class="mui-input-clear" placeholder="请输入用户名">
+				    </div>
+				    <div class="mui-input-row">
+				        <label>密码</label>
+				        <input type="password" id="password" class="mui-input-password" placeholder="请输入密码">
+				    </div>
+				    <div class="mui-button-row">
+				        <button type="button"  class="mui-btn mui-btn-primary" onclick="login()" >登录</button>
+				
+				        <a href="reg.html" style="line-height: 2rem;">立即注册</a>
+				    </div>
+			  </form>
+		</div>
 	</body>
 
+	<script>
+	function login(){
+		var username=document.getElementById("username").value;
+		var password=document.getElementById("password").value;
+		
+		
+		mui.get('http://172.16.27.212:8055/appapi/login',{username:username,password:password},function(data){
+				             if(data.status=="y"){
+									alert('登录成功！！');
+								}
+								else{
+									alert(data.info);
+								}
+				},'json'
+		);		
+	 }		
+	</script>
 </html>

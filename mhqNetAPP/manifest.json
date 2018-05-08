@@ -135,6 +135,13 @@
 					"blog.html"
 				],
 				"priority": 0
+			},
+			"reg.html": {
+				"resources": [],
+				"refer": [
+					"Login.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {
@@ -149,10 +156,8 @@
 				"fonts/mui.ttf",
 				"images/banner3.jpg",
 				"css/mui.min.css",
-				"reg.html",
 				"js/mui.js",
-				"css/mui.css",
-				"Login.html"
+				"css/mui.css"
 			]
 		}
 	}
