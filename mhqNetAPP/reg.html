@@ -12,31 +12,75 @@
 		</script>
 	</head>
 
-	<body>
-<header class="mui-bar mui-bar-nav">
-    <h1 class="mui-title">注册</h1>
-</header>
-<div class="mui-content">
-    <form class="mui-input-group">
-    <div class="mui-input-row">
-        <label>用户名</label>
-    <input type="text" class="mui-input-clear" placeholder="请输入用户名">
-    </div>
-    <div class="mui-input-row">
-        <label>密码</label>
-        <input type="password" class="mui-input-password" placeholder="请输入密码">
-    </div>
-        <div class="mui-input-row">
-        <label>确认密码</label>
-        <input type="password" class="mui-input-password" placeholder="请输入密码">
-    </div>
-    <div class="mui-button-row">
-        <button type="button" class="mui-btn mui-btn-danger" >注册</button>
-
-        <a href="Login.html" style="line-height: 2rem;">立即登录</a>
-    </div>
-</form>
-</div>
-	</body>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <h1 class="mui-title">注册</h1>
+	</header>
+	
+	<div class="mui-content">
+		
+		<form class="mui-input-group">
+			
+		    <div class="mui-input-row">
+		        <label>用户名</label>
+		    	<input type="text" id="username" class="mui-input-clear" placeholder="请输入用户名">
+		    </div>
+		    
+		    <div class="mui-input-row">
+		        <label>密码</label>
+		        <input type="password" id="password" class="mui-input-password" placeholder="请输入密码">
+		    </div>
+		    
+		     <div class="mui-input-row">
+		        <label>确认密码</label>
+		        <input type="password" id="password2" class="mui-input-password" placeholder="请输入密码">
+		    </div>
+		    
+		    <div class="mui-button-row">
+		        <button type="button" class="mui-btn mui-btn-danger" onclick="reg()" >注册</button>
+		        <a href="Login.html" style="line-height: 2rem; margin-left: 2rem;">立即登录</a>
+		    </div>
+		</form>
+		
+	</div>
+	
+	
+	<script>
+		function reg(){
+			
+			var username=document.getElementById('username').value;
+			var password=document.getElementById('password').value;
+			var password2=document.getElementById('password2').value;
+			
+			
+			if (username=''||password==''||password2='')
+			{
+				mui.alert('请把内容填写完整！');
+				return;
+			}
+			
+			if(password!=password2)
+			{
+				mui.alert('两次输入密码不一致，请重新输入!')
+				return;
+			}
+			
+			mui.get('http://172.16.27.212:8055/appapi/reg',{username:username,password:password},function(data){
+					             if(data.status=="y"){
+										mui.alert(data.info);
+									}
+									else{
+										mui.alert(data.info);
+									}
+					},'json'
+			);						
+		}
+		
+		
+	</script>
+	
+	
+	
+</body>
 
 </html>

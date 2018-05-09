@@ -29,7 +29,7 @@
 				    <div class="mui-button-row">
 				        <button type="button"  class="mui-btn mui-btn-primary" onclick="login()" >登录</button>
 				
-				        <a href="reg.html" style="line-height: 2rem;">立即注册</a>
+				        <a href="reg.html" style="line-height: 2rem; margin-left: 2rem;">立即注册</a>
 				    </div>
 			  </form>
 		</div>
@@ -39,14 +39,20 @@
 	function login(){
 		var username=document.getElementById("username").value;
 		var password=document.getElementById("password").value;
-		
-		
+		if(username="")
+		{
+			mui.alert('请输入用户名！')
+		}
+		if(password="")
+		{
+			mui.alert('请输入密码！')
+		}
 		mui.get('http://172.16.27.212:8055/appapi/login',{username:username,password:password},function(data){
 				             if(data.status=="y"){
-									alert('登录成功！！');
+									mui.alert(data.info);
 								}
 								else{
-									alert(data.info);
+									mui.alert(data.info);
 								}
 				},'json'
 		);		
